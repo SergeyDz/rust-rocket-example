@@ -1,4 +1,5 @@
 #[macro_use] extern crate rocket;
+rocket_healthz::healthz!();
 
 #[get("/")]
 fn index() -> &'static str {
@@ -7,5 +8,5 @@ fn index() -> &'static str {
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index])
+    rocket::build().mount("/", routes![index, healthz])
 }
