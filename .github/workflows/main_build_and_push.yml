@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: sergeydz/rust-rocket-example:{{ github.sha }}
+          tags: $sergeydz/rust-rocket-example:${{ github.sha }}
       -
         name: Build and push latest
         id: docker_build_latest
