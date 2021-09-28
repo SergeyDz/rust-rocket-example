@@ -1,15 +1,14 @@
 #[macro_use] extern crate rocket;
-extern crate pnet;
 
 rocket_healthz::healthz!();
-use pnet::datalink;
+use gethostname::gethostname;
+use local_ip_address::local_ip;
 
 #[get("/")]
 fn index() -> &'static str {
-    for iface in datalink::interfaces() {
-        println!("{:?}", iface.ips);
-    }
-    
+    let my_local_ip = local_ip().unwrap();
+    let my_host_name =gethostname();
+    println!("Hostname: {:?}, IP: {:?}", my_host_name, my_local_ip);
     "Hello, world!"
 }
 
