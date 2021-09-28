@@ -8,3 +8,4 @@ edition = "2018"
 [dependencies]
 rocket = "0.5.0-rc.1"
 rocket_healthz = "0.2.0"
+pnet = "0.28.0"
