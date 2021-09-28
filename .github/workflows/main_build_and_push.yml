@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: $sergeydz/rust-rocket-example:$SHA8
+          tags: $sergeydz/rust-rocket-example:${SHA8}
       -
         name: Build and push latest
         id: docker_build_latest
