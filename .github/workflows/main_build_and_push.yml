@@ -13,7 +13,8 @@ jobs:
       - 
         name: Checkout
         uses: actions/checkout@v2
-        
+        with:
+          fetch-depth: 0
       - 
         name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.7
@@ -40,7 +41,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: sergeydz/rust-rocket-example:${{ env.GITVERSION_SEMVER }}
+          tags: sergeydz/rust-rocket-example:${{ env.GITVERSION_FULLSEMVER }}
       -
         name: Build and push latest
         id: docker_build_latest
