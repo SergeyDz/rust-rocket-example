@@ -18,7 +18,7 @@ RUN PKG_CONFIG_ALLOW_CROSS=1 cargo build --release --target=x86_64-unknown-linux
 # ------------------------------------------------------------------------------
 # Final Stage
 # ------------------------------------------------------------------------------
-FROM alpine:latest
+FROM alpine:3.15.3
 ENV RUST_LOG=Info
 RUN addgroup -g 1000 myapp
 RUN adduser -D -s /bin/sh -u 1000 -G myapp myapp
